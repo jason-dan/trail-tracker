@@ -46,8 +46,7 @@ def lambda_handler(event, context):
         if latest_timestamp
         else {}
     )
-    # response = requests.get(BASE_URL, get_params)
-    response = requests.get(BASE_URL)
+    response = requests.get(BASE_URL, get_params)
     if response.status_code != http.HTTPStatus.OK:
         LOGGER.error("Non-200 code from Garmin! %s", response)
         raise RuntimeError("Non-200 code from Garmin")
